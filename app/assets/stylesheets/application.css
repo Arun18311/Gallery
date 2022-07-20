@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.footer{
+  background-color:aliceblue;
+  font-size: larger;
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  color: white;
+  text-align: center;
+   
+}
+.album-card :hover{
+  transform: scale(1.02);
+  transition:300ms;
+  overflow: hidden;
+}
+.album-card .card{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.log-in{
+  margin-top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 400px;
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px #888888;
+}
+/* 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 */

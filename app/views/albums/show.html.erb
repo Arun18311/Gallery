@@ -1,0 +1,38 @@
+ <%= render 'header'%>
+<div class="container mb-5">
+  <h1 class="text-center my-5"><%= @album.name%></h1>      
+  <div class="row ">
+    <% @album.images.each do |image|%> 
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <img src="<%= url_for(image)%>" alt="image" style="height:150px; width:14rem; object-fit-cover; overflow:hidden">
+        <% if user_signed_in? && @album.user_id == current_user.id%>
+        <%= button_to delete_image_attachment_album_path(image.id), method: :delete do %>
+          delete
+        <% end %>
+        <%end%>
+        <%#= link_to "Destroy", delete_image_attachment_album_path(image.id), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                            }%>
+        
+      </div>
+    <%end%> 
+
+    <% if user_signed_in? && @album.user_id == current_user.id %>
+      <div class="row d-flex justify-content-center mb-5">
+        <button class="btn btn-dark m-5" style="width:100px; height:50px"><%= link_to "Update", edit_album_path, class:'btn btn-dark'%></button>
+    
+        <button class ="btn btn-dark m-5"  style="width:100px; height:50px"><%= link_to "Destroy", album_path(@album),class:'btn btn-dark', data: {
+                              turbo_method: :delete,
+                              turbo_confirm: "Are you sure?"
+                              }%></button>
+      </div>
+    <%end%>                      
+  </div>
+</div>
+<div style="height:100px"></div>
+<%=render 'footer'%>
+
+
+
+ 

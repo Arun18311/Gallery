@@ -1,0 +1,55 @@
+ <%= render 'header'%>
+<div class="container-fluid mt-2">
+  <%= form_with model: @album do |form| %>
+  <div class="field form-group form-g">
+   <%=form.number_field :user_id , id: :album_user_id, type: :hidden, class: 'form-control', value: current_user.id %> 
+  </div>
+  <div>
+    <%= form.label :name%>
+    <%= form.text_field :name%>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :cover%>
+    <%= form.file_field :cover%>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :images%>
+    <%= form.file_field :images, multiple: true, direct_upload: true %>
+   
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :description%>
+    <%= form.text_field :description%>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :price%>
+    <%= form.text_field :price%>
+  </div>
+  <br>
+    <div>
+    <%= form.label :tag_list%>
+    <%= form.text_field :tag_list%>
+  </div>
+  <br>
+
+  
+   <div>
+    <%= form.check_box :publish%> 
+    <%= form.label :publish%> 
+
+  </div>
+  
+  <br>
+  <div>
+    <%= form.submit class: 'btn btn-primary'%>
+  </div>
+<%end%>
+</div>

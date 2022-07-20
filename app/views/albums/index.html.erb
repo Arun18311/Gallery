@@ -1,0 +1,41 @@
+ <%= render 'header'%>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="text-center mb-2"><h3 >ALBUMS</h3> 
+      <% if user_signed_in? %>
+        <div class="position-absolute" style="right:10px;top:70px"><h4><%= current_user.email %></h4></div> 
+      <% end %>
+    </div>
+    <% if user_signed_in?%>
+      <div class=" mt-2 position-absolute" style="width:180px;"><%= link_to "New Album", new_album_path%></div>
+    <%end%>
+    <div class="text-center mb-3">
+      <%= search_form_for @q do |f| %>
+        <%= f.search_field :name_cont, placeholder:"search by name" %>
+        <%= f.search_field :tags_name_cont, placeholder:"search by tag" %>      
+        <%= f.submit %>    
+      <% end %>
+    </div>
+    <% @albums.each do |album| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-2 ">  
+      <div class ="album-card">    
+        <div class="card text-center"  style="width: 15rem; m-2">
+          <a href="/albums/<%= album.id%>" style="text-decoration:none;color:black">
+            <img src="<%= url_for(album.cover)%>" class="card-img-top" alt="image" height=180>                  
+            <div class="card-body">
+              <h5 class="card-title"><%= album.name%></h5>
+              <p class="card-text"><%= album.description%></p>
+              <p class="card-text">Published by : <%=User.find(album.user_id).name%></p>                      
+            </div>
+          </a>
+        </div> 
+        </div>     
+      </div>    
+    <%end%>    
+    <%= paginate @albums %>  
+    <div style="height:100px"></div>
+  </div> 
+</div>
+<%= render'footer'%>
+ 
+
