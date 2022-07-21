@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_07_19_112147) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_112147) do
     t.string "name"
     t.text "description"
     t.string "price"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "publish"
@@ -54,8 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_112147) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "album_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "album_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_taggings_on_album_id"

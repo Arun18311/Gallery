@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   adapter: sqlite3
-  # database: album_dev
+  database: sqlite3
   # user: arun
   # password: 123456
 
