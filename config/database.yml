@@ -25,6 +25,6 @@ test:
   database: album_dtest
 
 production:
-  adapter: postgresql
+  adapter: postgres
   <<: *default
   database: album_prod
