@@ -8,12 +8,13 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  user: arun
-  password: 123456
+
 
 development:
   <<: *default
   database: album_dev
+  user: arun
+  password: 123456
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,4 +25,4 @@ test:
 
 production:
   <<: *default
-  database: album_dev
+  database: album_prod
