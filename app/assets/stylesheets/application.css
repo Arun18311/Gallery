@@ -45,6 +45,43 @@
   border-radius: 20px;
   box-shadow: 5px 10px 8px #888888;
 }
+.btn-danger :hover{
+  transform: scale(1.8);
+  transition: 200ms;
+   
+}
+.show-image{
+  height:150px;
+  width:14rem;
+  object-fit:cover; 
+  overflow:hidden;
+  border: 1px solid ;
+  
+  
+}
+.show-image:hover{
+  transform: scale(1.5);
+  transition: 500ms;
+
+}
+.btn-destroy{
+ 
+  text-decoration:none; 
+  width:100px;
+  height:45px;
+}
+.btn-destroy:hover{
+  background-color: red;
+}
+ 
+.btn-update{ 
+  text-decoration:none; 
+  width:100px;
+  height:45px;
+}
+.btn-update:hover{
+  background-color: rgb(93, 146, 14);
+}
 /* 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 */
 /* official github account */
 /* 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 */

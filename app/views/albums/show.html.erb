@@ -3,11 +3,11 @@
   <h1 class="text-center my-5"><%= @album.name%></h1>      
   <div class="row ">
     <% @album.images.each do |image|%> 
-      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-        <img src="<%= url_for(image)%>" alt="image" style="height:150px; width:14rem; object-fit-cover; overflow:hidden">
+      <div class="col col-sm-6 col-md-4 col-lg-3 mt-4 d-flex justify-content-center">
+        <img src="<%= url_for(image)%>" alt="image" class="show-image" style="height:150px; width:14rem; object-fit-cover; overflow:hidden">
         <% if user_signed_in? && @album.user_id == current_user.id%>
-        <%= button_to delete_image_attachment_album_path(image.id), method: :delete do %>
-          delete
+        <%= button_to delete_image_attachment_album_path(image.id),class:"rounded-circle btn btn-danger ", method: :delete do %>
+          <i class="fa-solid fa-x "></i>
         <% end %>
         <%end%>
         <%#= link_to "Destroy", delete_image_attachment_album_path(image.id), data: {
@@ -20,12 +20,12 @@
 
     <% if user_signed_in? && @album.user_id == current_user.id %>
       <div class="row d-flex justify-content-center mb-5">
-        <button class="btn btn-dark m-5" style="width:100px; height:50px"><%= link_to "Update", edit_album_path, class:'btn btn-dark'%></button>
+         <%= link_to "Update", edit_album_path,style:"text-decoration:none; width:100px;height:50px", class:'btn btn-dark btn-update m-5'%> 
     
-        <button class ="btn btn-dark m-5"  style="width:100px; height:50px"><%= link_to "Destroy", album_path(@album),class:'btn btn-dark', data: {
+         <%= link_to "Destroy", album_path(@album),  class:'btn btn-dark m-5 btn-destroy', data: {
                               turbo_method: :delete,
                               turbo_confirm: "Are you sure?"
-                              }%></button>
+                              }%> 
       </div>
     <%end%>                      
   </div>

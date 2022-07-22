@@ -16,7 +16,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="/albums/myalbum">My Album</a>
         </li>               
-        <li class="nav-link text-dark" ><%= link_to "LogOut", destroy_user_session_path,class:'text-dark',style:'text-decoration:none;',class:'link-to', data: {
+        <li class="nav-link text-dark" ><%= link_to "LogOut", destroy_user_session_path,class:'text-dark link-to',style:'text-decoration:none;', data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"                                   
                   }  %></li>

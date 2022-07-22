@@ -5,6 +5,9 @@ class Album < ApplicationRecord
   has_many :tags, through: :taggings
   has_one_attached :cover
   has_many_attached :images
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
   
 
   def self.tagged_with(name)
