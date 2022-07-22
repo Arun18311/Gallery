@@ -20,9 +20,9 @@
 
     <% if user_signed_in? && @album.user_id == current_user.id %>
       <div class="row d-flex justify-content-center mb-5">
-         <%= link_to "Update", edit_album_path,style:"text-decoration:none; width:100px;height:50px", class:'btn btn-dark btn-update m-5'%> 
+         <%= link_to "Update", edit_album_path,  class:'btn btn-dark btn-update'%> 
     
-         <%= link_to "Destroy", album_path(@album),  class:'btn btn-dark m-5 btn-destroy', data: {
+         <%= link_to "Destroy", album_path(@album),  class:'btn btn-dark btn-destroy', data: {
                               turbo_method: :delete,
                               turbo_confirm: "Are you sure?"
                               }%> 
@@ -30,7 +30,7 @@
     <%end%>                      
   </div>
 </div>
-<div style="height:100px"></div>
+<div class="footer-gap-box"></div>
 <%=render 'footer'%>
 
 

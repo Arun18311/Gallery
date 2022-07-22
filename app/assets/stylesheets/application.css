@@ -65,10 +65,11 @@
 
 }
 .btn-destroy{
- 
+  margin-top: 40px; 
   text-decoration:none; 
   width:100px;
   height:45px;
+  margin-left: 10px;
 }
 .btn-destroy:hover{
   background-color: red;
@@ -78,9 +79,40 @@
   text-decoration:none; 
   width:100px;
   height:45px;
+  margin-top: 40px;
+  margin-right: 10px; 
 }
 .btn-update:hover{
   background-color: rgb(93, 146, 14);
+}
+.footer-gap-box{
+  height: 200px;
+}
+ 
+.search-box-name, .search-box-tag{
+  height: 40px;
+  border-radius:10px;
+  margin-top: 5px;
+}
+.search-button{
+  border-radius: 10px;
+  height: 40px;
+}
+@media only screen and (max-width: 320px) {
+  .footer{
+     
+    position:relative;
+  }
+  .footer-gap-box{
+    height:0px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .search-button{
+    width:220px;
+    margin-top: 5px;
+  }
 }
 /* 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 */
 /* official github account */
