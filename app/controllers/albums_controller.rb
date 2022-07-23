@@ -2,8 +2,8 @@ class AlbumsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index   
-    @q = Album.ransack(params[:q])
-    @albums = @q.result.includes(:tags).where(publish: true).page(params[:page])  
+    @q = Album.where(publish: true).ransack(params[:q])
+    @albums = @q.result.includes(:tags).page(params[:page])  
   end
 
   def delete_image_attachment
