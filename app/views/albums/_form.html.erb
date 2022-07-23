@@ -2,57 +2,58 @@
 <div class="container-fluid mt-2 form">
   <%= form_with model: @album do |form| %>
   <div class="field form-group form-g">
-   <%=form.number_field :user_id , id: :album_user_id, type: :hidden, class: 'form-control', value: current_user.id %> 
-  </div>
-    <div>
-    <h2 class="text-primary">Create Album<h2>
-  </div>
-  <div>
-    <%= form.label :name,class:'form-label'%><br>
-    <%= form.text_field :name,class:'form-control'%>
-  </div>
-  <br>
+    <%=form.number_field :user_id , id: :album_user_id, type: :hidden, class: 'form-control', value: current_user.id %>       
+      <div>
+        <h2 class="text-primary">Create Album<h2>
+      </div>
 
-  <div>
-    <%= form.label :cover,class:'form-label'%>
-    <%= form.file_field :cover,class:'form-control'%>
-  </div>
-  <br>
-  <div>
-    <%= form.label :images,class:'form-label'%>
-    <%= form.file_field :images, multiple: true, direct_upload: true,class:'form-control' %>
-   
-  </div>
-  <br>
+      <div>
+        <%= form.label :name,class:'form-label'%><br>
+        <%= form.text_field :name,class:'form-control'%>
+      </div>
+      <br>
 
-  <div>
-    <%= form.label :description,class:'form-label'%><br>
-    <%= form.text_field :description,class:'form-control'%>
-  </div>
-  <br>
+      <div>
+        <%= form.label :cover,class:'form-label'%>
+        <%= form.file_field :cover,class:'form-control'%>
+      </div>
+      <br>
 
-  <div>
-    <%= form.label :price,class:'form-label'%>
-    <%= form.text_field :price,class:'form-control'%>
-  </div>
-  <br>
-    <div>
-    <%= form.label :tag_list,class:'form-label'%><br>
-    <%= form.text_field :tag_list,class:'form-control'%>
-  </div>
-  <br>
+      <div>
+        <%= form.label :images,class:'form-label'%>
+        <%= form.file_field :images, multiple: true, direct_upload: true,class:'form-control' %>      
+      </div>
+      <br>
 
-  
-   <div>
-    <%= form.check_box :publish,class:'form-label'%> 
-    <%= form.label :publish%> 
+      <div>
+        <%= form.label :description,class:'form-label'%><br>
+        <%= form.text_field :description,class:'form-control'%>
+      </div>
+      <br>
 
+      <div>
+        <%= form.label :price,class:'form-label'%>
+        <%= form.text_field :price,class:'form-control'%>
+      </div>
+      <br>
+
+      <div>
+        <%= form.label :tag_list,class:'form-label'%><br>
+        <%= form.text_field :tag_list,class:'form-control'%>
+      </div>
+      <br>
+      
+      <div>
+        <%= form.check_box :publish,class:'form-label'%> 
+        <%= form.label :publish%> 
+      </div>      
+      <br>
+
+      <div>
+        <%= form.submit class: 'btn btn-primary'%>
+      </div>
+      
+    <%end%>
   </div>
-  
-  <br>
-  <div>
-    <%= form.submit class: 'btn btn-primary'%>
-  </div>
-<%end%>
 </div>
 <div style="height:200px"></div>
