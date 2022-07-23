@@ -1,4 +1,4 @@
- <%= render 'header'%>
+<%= render 'header'%>
 <div class="container mb-5">
   <h1 class="text-center my-5"><%= @album.name%></h1>      
   <div class="row ">
@@ -6,26 +6,20 @@
       <div class="col col-sm-6 col-md-4 col-lg-3 mt-4 d-flex justify-content-center">
         <img src="<%= url_for(image)%>" alt="image" class="show-image" style="height:150px; width:14rem; object-fit-cover; overflow:hidden">
         <% if user_signed_in? && @album.user_id == current_user.id%>
-        <%= button_to delete_image_attachment_album_path(image.id),class:"rounded-circle btn btn-danger ", method: :delete do %>
-          <i class="fa-solid fa-x "></i>
-        <% end %>
+          <%= button_to delete_image_attachment_album_path(image.id),class:"rounded-circle btn btn-danger ", method: :delete do %>
+            <i class="fa-solid fa-x "></i>
+          <% end %>
         <%end%>
-        <%#= link_to "Destroy", delete_image_attachment_album_path(image.id), data: {
-                            turbo_method: :delete,
-                            turbo_confirm: "Are you sure?"
-                            }%>
-        
       </div>
     <%end%> 
 
     <% if user_signed_in? && @album.user_id == current_user.id %>
       <div class="row d-flex justify-content-center mb-5">
-         <%= link_to "Update", edit_album_path,  class:'btn btn-dark btn-update'%> 
-    
-         <%= link_to "Destroy", album_path(@album),  class:'btn btn-dark btn-destroy', data: {
-                              turbo_method: :delete,
-                              turbo_confirm: "Are you sure?"
-                              }%> 
+        <%= link_to "Update", edit_album_path,  class:'btn btn-dark btn-update'%>     
+        <%= link_to "Destroy", album_path(@album),  class:'btn btn-dark btn-destroy', data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                            }%> 
       </div>
     <%end%>                      
   </div>

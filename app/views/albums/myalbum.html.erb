@@ -1,29 +1,27 @@
- 
- <%= render 'header'%>
- <div class="container-fluid mt-3">
-  <div class="row">
-  
-  <div class="text-center mb-2"><h3 >My ALBUMS</h3> 
-  <% if current_user == false%>
-    <div class="position-absolute" style="right:10px;top:70px"><h4><%= current_user.email%> </h4></div>
-    <%end%>
-  </div>
-   <div class=" mt-2 position-absolute" style="width:180px;"><%= link_to "New Album", new_album_path%></div>
-   
-  <% @myalbums.each do |album| %>
-    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-2 ">      
-      <div class="card text-center"  style="width: 15rem;">
-        <a href="/albums/<%= album.id%>" style="text-decoration:none;color:black">
-          <img src="<%= url_for(album.cover)%>" class="card-img-top" alt="image" height=200>          
-          <div class="card-body">
-            <h5 class="card-title"><%= album.name%></h5>
-            <p class="card-text"><%= album.description%></p>
-            <p class="card-text">Publish by: <%=User.find(album.user_id).name%></p>        
-          </div>
-        </a>
-      </div>      
-    </div>  
-  <%end%>  
+<%= render 'header'%>
+<div class="container-fluid mt-3">
+  <div class="row">  
+    <div class="text-center mb-2"><h3 >My ALBUMS</h3> 
+      <% if current_user == false%>
+        <div class="position-absolute" style="right:10px;top:70px"><h4><%= current_user.email%> </h4></div>
+      <%end%>
+    </div>
+    <div class=" mt-2 position-absolute" style="width:180px;"><%= link_to "New Album", new_album_path%></div>
+    
+    <% @myalbums.each do |album| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-2 ">      
+        <div class="card text-center"  style="width: 15rem;">
+          <a href="/albums/<%= album.id%>" style="text-decoration:none;color:black">
+            <img src="<%= url_for(album.cover)%>" class="card-img-top" alt="image" height=200>          
+            <div class="card-body">
+              <h5 class="card-title"><%= album.name%></h5>
+              <p class="card-text"><%= album.description%></p>
+              <p class="card-text">Publish by: <%=User.find(album.user_id).name%></p>        
+            </div>
+          </a>
+        </div>      
+      </div>  
+    <%end%>  
   </div> 
 </div>
 <%= render 'footer'%>

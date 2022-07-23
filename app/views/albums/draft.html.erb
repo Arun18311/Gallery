@@ -1,9 +1,9 @@
 <%= render 'header'%>
 <div class="container-fluid">
     <div class="row">
-    <h3 class="text-center text-danger mt-3">Unpublished Albums</h3>
-    <% @my_unpublished_albums.each do |album| %>
-      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-2 ">      
+      <h3 class="text-center text-danger mt-3">Unpublished Albums</h3>
+      <% @my_unpublished_albums.each do |album| %>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-2 ">      
           <div class="card text-center"  style="width: 15rem;">
             <a href="/albums/<%= album.id%>" style="text-decoration:none;color:black">
               <img src="<%= url_for(album.cover)%>" class="card-img-top" alt="image" height=200>          
@@ -14,8 +14,8 @@
               </div>
             </a>
           </div>      
-      </div>  
-    <%end%>  
+        </div>  
+      <%end%>  
   </div>
 </div>
 <%= render 'footer'%>

@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 .footer{
   background-color:aliceblue;
   font-size: larger;
@@ -21,8 +6,7 @@
   bottom: 0;
   width: 100%; 
   color: white;
-  text-align: center;
-   
+  text-align: center;   
 }
 .album-card :hover{
   transform: scale(1.02);
@@ -32,7 +16,6 @@
 .album-card .card{
   margin-left: auto;
   margin-right: auto;
-
 }
 .log-in, .form{
   margin-top: 7rem;
@@ -47,22 +30,18 @@
 }
 .btn-danger :hover{
   transform: scale(1.8);
-  transition: 200ms;
-   
+  transition: 200ms;   
 }
 .show-image{
   height:150px;
   width:14rem;
   object-fit:cover; 
   overflow:hidden;
-  border: 1px solid ;
-  
-  
+  border: 1px solid ;  
 }
 .show-image:hover{
   transform: scale(1.5);
   transition: 500ms;
-
 }
 .btn-destroy{
   margin-top: 40px; 
@@ -73,8 +52,7 @@
 }
 .btn-destroy:hover{
   background-color: red;
-}
- 
+} 
 .btn-update{ 
   text-decoration:none; 
   width:100px;
@@ -86,9 +64,8 @@
   background-color: rgb(93, 146, 14);
 }
 .footer-gap-box{
-  height: 200px;
-}
- 
+  height: 300px;
+} 
 .search-box-name, .search-box-tag{
   height: 40px;
   border-radius:10px;
@@ -99,21 +76,16 @@
   height: 40px;
 }
 @media only screen and (max-width: 320px) {
-  .footer{
-     
+  .footer{     
     position:relative;
   }
   .footer-gap-box{
     height:0px;
   }
 }
-
 @media only screen and (max-width: 540px) {
   .search-button{
     width:220px;
     margin-top: 5px;
   }
 }
-/* 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 */
-/* official github account */
-/* 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 */

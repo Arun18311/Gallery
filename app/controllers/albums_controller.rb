@@ -1,26 +1,23 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, only: [:draft, :myalbum]
+  before_action :authenticate_user!, except: [:draft, :myalbum, :index, :show]
+
   def index   
     @q = Album.ransack(params[:q])
-    @albums = @q.result.includes(:tags).where(publish: true).page(params[:page])
-    @user_name = User.all  
+    @albums = @q.result.includes(:tags).where(publish: true).page(params[:page])  
   end
 
   def delete_image_attachment
-    @image = ActiveStorage::Attachment.find(params[:id])
-    @image.purge
-  redirect_back(fallback_location: albums_path)  
-  end
-  
+    image = ActiveStorage::Attachment.find(params[:id])
+    image.purge
+    redirect_back(fallback_location: albums_path)  
+  end  
 
-  def myalbum        
-    # @my_published_albums = Album.where(user_id: current_user.id, publish: true)  
-    # @my_unpublished_albums = Album.where(user_id: current_user.id, publish: false) 
-      @myalbums = Album.where(user_id: current_user.id)    
+  def myalbum  
+    @myalbums = current_user.albums
   end 
   
   def draft
-     @my_unpublished_albums = Album.where(user_id: current_user.id, publish: false)    
+    @my_unpublished_albums = current_user.albums.where(publish: false)  
   end  
   
   def show
@@ -32,8 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create!(album_params)
-
+    @album = Album.create(album_params)
     if @album.save
       redirect_to @album
     else
@@ -47,7 +43,6 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-
     if @album.update!(album_params)
       redirect_to @album
     else
@@ -56,15 +51,14 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.find(params[:id])
-    @album.destroy
-
+    album = Album.find(params[:id])
+    album.destroy
     redirect_to root_path, status: :see_other    
   end  
 
   private
     def album_params
       params.require(:album).permit(:name, :description, :price, :publish, :user_id,:tag_list,:cover, images:[])      
-    end      
-  
+    end 
+
 end
