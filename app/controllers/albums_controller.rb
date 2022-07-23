@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, except: [:draft, :myalbum, :index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index   
     @q = Album.ransack(params[:q])
